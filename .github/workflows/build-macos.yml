@@ -51,11 +51,11 @@ jobs:
           ls -l dist
           (test -f dist/*.sha256sum && echo "EXISTS=true" >> $GITHUB_OUTPUT) || echo "EXISTS=false" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
-        if: steps.check_file.outputs.EXISTS == 'true'
-        with:
-          name: node${{ matrix.target-node }}-macos-x64
-          path: dist/*
+      # - uses: actions/upload-artifact@v4
+      #   if: steps.check_file.outputs.EXISTS == 'true'
+      #   with:
+      #     name: node${{ matrix.target-node }}-macos-x64
+      #     path: dist/*
 
   macos-arm64:
     runs-on: macos-14 # macos-14 is arm64: https://github.com/actions/runner-images#available-images
@@ -109,8 +109,8 @@ jobs:
           ls -l dist
           (test -f dist/*.sha256sum && echo "EXISTS=true" >> $GITHUB_OUTPUT) || echo "EXISTS=false" >> $GITHUB_OUTPUT
 
-      - uses: actions/upload-artifact@v4
-        if: steps.check_file.outputs.EXISTS == 'true'
-        with:
-          name: node${{ matrix.target-node }}-macos-arm64
-          path: dist/*
+      # - uses: actions/upload-artifact@v4
+      #   if: steps.check_file.outputs.EXISTS == 'true'
+      #   with:
+      #     name: node${{ matrix.target-node }}-macos-arm64
+      #     path: dist/*
